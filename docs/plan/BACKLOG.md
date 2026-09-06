@@ -6,14 +6,14 @@ Owner roles below are proposed. Record named owners/reviewers at kickoff; no Git
 
 | Task | Gate | Lead | Depends on | Deliverable |
 | --- | --- | --- | --- | --- |
-| T01 | G0 | Frank + partner | None | Confirm team roles, equipment and working agreement |
-| T02 | G0 | Partner | T01 | Review command authority, interfaces and the stop path |
-| T03 | G0 | Partner | T01 | Compare three chassis suppliers and propose a compatible BOM |
-| T04 | G0 | Frank | T01 | Record the development environment and first reproducible setup |
-| T05 | G0/G1 | Partner | T02, T03 | Complete hardware-specific G1 acceptance and measurement methods |
-| T06 | G0/G2 | Partner | T02, T04 | Define the 20-trial navigation protocol |
-| T07 | G0 | Frank | T04 | Rehearse evidence capture with one labeled dry-run record |
-| T08 | G0/G1 | Both | T03, T04, T05, T06, T07 | Review G0 readiness and prepare the first manual-robot test |
+| [T01](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/1) | G0 | Frank + partner | None | Confirm team roles, equipment and working agreement |
+| [T02](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/2) | G0 | Partner | T01 | Review command authority, interfaces and the stop path |
+| [T03](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/3) | G0 | Partner | T01 | Compare three chassis suppliers and propose a compatible BOM |
+| [T04](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/4) | G0 | Frank | T01 | Record the development environment and first reproducible setup |
+| [T05](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/5) | G0/G1 | Partner | T02, T03 | Complete hardware-specific G1 acceptance and measurement methods |
+| [T06](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/6) | G0/G2 | Partner | T02, T04 | Define the 20-trial navigation protocol |
+| [T07](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/7) | G0 | Frank | T04 | Rehearse evidence capture with one labeled dry-run record |
+| [T08](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/8) | G0/G1 | Both | T03, T04, T05, T06, T07 | Review G0 readiness and prepare the first manual-robot test |
 | T09 | G1 | Partner | T08 | Execute and cross-review manual control and stop tests |
 | T10 | G2 | Partner | T09 | Implement navigation and execute the frozen 20-trial protocol |
 | T11 | G3/G4 | Frank | T10 | Benchmark edge perception and build enrolled-target identity |
