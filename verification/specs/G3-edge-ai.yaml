@@ -1,0 +1,46 @@
+schema_version: 1
+gate: G3
+title: Measured edge perception on the initial backend
+status: DRAFT
+revision: 0.1-draft
+owner_role: Frank
+independent_reviewer: null
+prerequisite_gates:
+- G2
+required_evidence_modes:
+- physical
+freeze_record:
+  frozen_at_utc: null
+  criterion_owner: null
+  reviewer: null
+required_decisions_before_freeze:
+  model_and_dataset_revision: null
+  accuracy_metric_and_minimum: null
+  maximum_end_to_end_latency_ms: null
+  minimum_sustained_fps: null
+  benchmark_duration_min: null
+  thermal_limit_c: null
+  dropped_frame_limit: null
+  measurement_method_and_repetitions: null
+criteria:
+- id: G3-C01
+  mandatory: true
+  claim: The model and runtime are reproducibly identified.
+  measurement_method: Check source/converted hashes, preprocessing, quantization and board/runtime versions.
+  evidence_required:
+  - model record
+  - conversion commands
+  - runtime versions
+  acceptance: Inputs and versions are complete and reproducible.
+- id: G3-C02
+  mandatory: true
+  claim: Accuracy and sustained behavior meet frozen limits.
+  measurement_method: Measure held-out accuracy plus camera-to-decision latency, FPS, dropped frames and temperature
+    under declared load.
+  evidence_required:
+  - raw timing samples
+  - dataset split
+  - temperature trace
+  - metric calculations
+  acceptance: All declared limits are met; CPU/offline and RK3588 measurements remain distinct.
+notes: []

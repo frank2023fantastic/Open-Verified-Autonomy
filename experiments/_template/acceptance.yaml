@@ -1,0 +1,6 @@
+status: DRAFT
+gate: __GATE__
+revision: null
+instructions: Replace this file with an exact copy of the reviewed FROZEN specification before a qualifying run.
+criteria: []
+not_a_valid_acceptance_spec: true

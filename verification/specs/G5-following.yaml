@@ -1,0 +1,46 @@
+schema_version: 1
+gate: G5
+title: Integrated verified-target following candidate
+status: DRAFT
+revision: 0.1-draft
+owner_role: Both
+independent_reviewer: null
+prerequisite_gates:
+- G4
+required_evidence_modes:
+- physical
+freeze_record:
+  frozen_at_utc: null
+  criterion_owner: null
+  reviewer: null
+required_decisions_before_freeze:
+  operating_envelope: null
+  following_distance_m: null
+  p95_distance_error_limit_m: null
+  max_speed_and_acceleration: null
+  minimum_clearance_m: null
+  target_loss_stop_time_and_distance: null
+  range_reference_and_uncertainty: null
+  repetitions_per_scenario: null
+  resume_policy: null
+criteria:
+- id: G5-C01
+  mandatory: true
+  claim: Baseline following and target identity meet the declared criteria.
+  measurement_method: Execute S01-S07 in the supervised test area; calculate tracking, distance and motion metrics.
+  evidence_required:
+  - run records
+  - camera/track/range/command/wheel data
+  - video
+  acceptance: All mandatory distance, identity and uncertainty criteria pass across the scheduled scenarios.
+- id: G5-C02
+  mandatory: true
+  claim: Obstacle response respects the tested operating envelope.
+  measurement_method: Execute S08-S09 with a prepared obstacle procedure and measured clearance/stopping reference.
+  evidence_required:
+  - obstacle/sensor trace
+  - wheel telemetry
+  - video
+  - events
+  acceptance: Measured obstacle response satisfies frozen clearance and motion limits.
+notes: []

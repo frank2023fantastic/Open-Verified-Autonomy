@@ -1,0 +1,50 @@
+schema_version: 1
+gate: G4
+title: Enrollment and identity continuity
+status: DRAFT
+revision: 0.1-draft
+owner_role: Frank
+independent_reviewer: null
+prerequisite_gates:
+- G3
+required_evidence_modes:
+- replay
+freeze_record:
+  frozen_at_utc: null
+  criterion_owner: null
+  reviewer: null
+required_decisions_before_freeze:
+  enrollment_method: null
+  confidence_thresholds: null
+  range_measurement_and_validity: null
+  target_loss_timeout_ms: null
+  resume_policy: null
+  occlusion_durations: null
+  dataset_participants_conditions: null
+  scenario_repetition_counts: null
+criteria:
+- id: G4-C01
+  mandatory: true
+  claim: Target identity remains explicit and does not silently switch to a distractor.
+  measurement_method: Run enrolled-target crossings and similar-appearance cases; compare annotated identity with
+    tracking output.
+  evidence_required:
+  - enrollment record
+  - track/confidence log
+  - annotated video
+  acceptance:
+    proposed_crossing_trials: 20
+    proposed_wrong_target_switches: 0
+- id: G4-C02
+  mandatory: true
+  claim: Uncertain identity produces the defined policy decision.
+  measurement_method: Test short/long occlusion and invalid range; inspect target state and requested motion policy.
+  evidence_required:
+  - S02-S05 records
+  - policy traces
+  - ground-truth annotations
+  acceptance: All defined confidence, target-loss and resume rules are respected; physical integrated following
+    is evaluated in G5.
+notes:
+- The 20 crossings / zero switches figures are draft project targets, not an established result or general reliability
+  guarantee.

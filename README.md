@@ -6,7 +6,9 @@ We are building an open, low-cost autonomous mobile robot where AI agents can he
 
 Our first application is **verified target following**: a small indoor robot that follows one explicitly selected person, handles uncertainty, and produces evidence showing whether it met its requirements.
 
-> **Current status — Project definition, September 2026.** This repository currently contains the project README. The architecture, hardware configuration, software, tests, and evidence workflow below are planned work. No robot capability or development gate has been verified yet.
+> **Current status — Startup scaffold, September 2026.** Architecture and interface drafts, a task roadmap, acceptance/scenario drafts, and experiment templates are now available. Runtime robotics software and hardware validation remain to be implemented. No robot capability or development gate has been verified yet.
+
+**Start with [the first 72 hours](docs/START_HERE.md), [the task backlog](docs/plan/BACKLOG.md), and [current status](docs/plan/STATUS.md).**
 
 ## Why we are building this
 
@@ -151,30 +153,41 @@ Before these tests, define numerical limits for speed, acceleration, following d
 
 The next deliverable is **G0**, followed by a measurable G1 manual robot.
 
-1. Write `docs/architecture/three-plane-v0.1.md`, including interfaces and stop authority.
-2. Draft `verification/specs/G1-manual-robot.yaml` and `G2-navigation.yaml` before implementing those features.
-3. Compare a small number of chassis suppliers using protocol openness, documentation, and stop behavior; record the hardware decision.
-4. Bring up a virtual differential-drive robot on an available computer while hardware is being selected.
-5. Create the S01–S12 scenario descriptions and identify which can run in simulation or replay.
-6. Record a short first build log explaining the goal, the three planes, and the most likely failure modes.
+1. Follow [the first 72 hours](docs/START_HERE.md) and confirm [team responsibilities](docs/plan/TEAM.md).
+2. Review the drafted [architecture](docs/architecture/three-plane-v0.1.md) and [interfaces](docs/architecture/interfaces-v0.1.md).
+3. Use [the hardware checklist](hardware/supplier-checklist.md) to compare real suppliers and resolve compatibility.
+4. Complete the drafted [G1](verification/specs/G1-manual-robot.yaml) and [G2](verification/specs/G2-navigation.yaml) criteria.
+5. Use [the experiment templates](experiments/README.md) to rehearse evidence capture.
+6. Work through [the backlog](docs/plan/BACKLOG.md) and [GitHub Issues](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues).
 
-There is no project installation or launch command yet. Add and verify those instructions when the first working implementation is committed.
+The record-creation helper is available with Python 3.9+:
 
-### Planned repository layout
+```bash
+python3 tools/new_experiment.py --run-id practice-001 --gate G1 --mode dry_run
+```
 
-These paths describe the intended structure; they do not yet exist.
+This creates an empty, labeled record. It does not execute a robot test or issue a verdict.
+Robot installation and launch commands will be added with a working implementation.
+
+### Repository layout
+
+The directories below contain starting documents and templates. Runtime modules are not implemented yet.
 
 | Path | Contents |
 | --- | --- |
-| `docs/architecture/` | Architecture, interfaces, decisions, and operating boundaries. |
-| `hardware/` | BOM, wiring, URDF/CAD, and MCU protocol documentation. |
-| `firmware/` | Motor-control and watchdog implementation or documented upstream integration. |
-| `ros2_ws/src/` | Bringup, navigation, perception, target tracking, and safety packages. |
-| `ai/` | Model metadata, conversion scripts, and inference benchmarks. |
-| `verification/` | Specifications, scenarios, verifiers, and evidence indexes. |
-| `experiments/` | Versioned run configurations, metrics, reports, and decisions. |
-| `third_party/` | Upstream versions, licenses, and attribution. |
-| `media/` | Build-log and demonstration indexes linked to test results. |
+| [docs/](docs/START_HERE.md) | Startup guide, team, roadmap, task backlog, and current status. |
+| [docs/architecture/](docs/architecture/three-plane-v0.1.md) | Three planes, interface contract, and decision-record template. |
+| [hardware/](hardware/README.md) | BOM, supplier comparison, selection, and bringup checklists. |
+| [firmware/](firmware/README.md) | MCU integration responsibilities and first deliverables. |
+| [ros2_ws/src/](ros2_ws/src/README.md) | Planned package responsibilities and integration sequence. |
+| [ai/](ai/README.md) | Edge perception work plan and model metadata template. |
+| [verification/](verification/README.md) | G0–G8 draft specs, S01–S12 scenarios, review protocol, and evidence indexes. |
+| [experiments/](experiments/README.md) | Seven-file record template and experiment instructions. |
+| [tools/](tools/README.md) | Experiment-record creation utility. |
+| [third_party/](third_party/README.md) | Upstream integration and license register. |
+| [media/](media/README.md) | Evidence-linked build-log instructions. |
+
+Read [CONTRIBUTING](CONTRIBUTING.md) for task handoffs and the coordinated main-branch workflow.
 
 ## Learn from and contribute to open source
 

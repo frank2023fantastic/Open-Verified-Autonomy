@@ -1,0 +1,9 @@
+item_id,function,candidate_model,quantity,unit_price,currency,quote_date,supplier_url,protocol_or_driver_source,license_or_reuse_terms,compatibility_status,owner,decision
+HW01,RK3588 computer and cooling,TBD,1,,,,,,,NOT_CHECKED,Frank,OPEN
+HW02,Differential chassis with encoders and MCU,TBD,1,,,,,,,NOT_CHECKED,Partner,OPEN
+HW03,2D LiDAR,TBD,1,,,,,,,NOT_CHECKED,Partner,OPEN
+HW04,USB UVC camera,TBD,1,,,,,,,NOT_CHECKED,Frank,OPEN
+HW05,Physical emergency stop and drive interface,TBD,1,,,,,,,NOT_CHECKED,Partner + mentor,OPEN
+HW06,Finished battery BMS charger and regulated supply,TBD,1,,,,,,,NOT_CHECKED,Partner + mentor,OPEN
+HW07,Storage and cables,TBD,1,,,,,,,NOT_CHECKED,Both,OPEN
+HW08,IMU if not included in chassis,TBD,,,,,,,,NOT_CHECKED,Partner,OPEN

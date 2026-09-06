@@ -1,0 +1,281 @@
+schema_version: 1
+status: DRAFT
+scenarios:
+- id: S01
+  gate: G5
+  status: DRAFT
+  title: Baseline following
+  preconditions:
+  - One enrolled target in the declared clear area.
+  - Complete the applicable frozen gate specification before a qualifying run.
+  steps:
+  - Enroll the target and record identity.
+  - Follow the declared route at the specified pace.
+  - Record range, identity, requested motion, wheel state and interventions.
+  measurements:
+  - distance error distribution
+  - identity switches
+  - motion limit compliance
+  repetitions: null
+  supporting_modes:
+  - simulation
+  - replay
+  qualification: G4 may use recorded real scenes; G5/G6 require physical integrated evidence.
+  expected_result: Apply the frozen gate criteria; no result has been recorded.
+- id: S02
+  gate: G4/G5
+  status: DRAFT
+  title: Distractor crossing
+  preconditions:
+  - Enrolled target and consenting distractor; defined crossing geometry.
+  - Complete the applicable frozen gate specification before a qualifying run.
+  steps:
+  - Enroll the target.
+  - Have the distractor cross according to the frozen sequence.
+  - Compare ground-truth identity, track confidence and policy decisions.
+  measurements:
+  - wrong-target switches
+  - confidence transitions
+  - required stop behavior
+  repetitions: null
+  supporting_modes:
+  - simulation
+  - replay
+  qualification: G4 may use recorded real scenes; G5/G6 require physical integrated evidence.
+  expected_result: Apply the frozen gate criteria; no result has been recorded.
+- id: S03
+  gate: G4/G5
+  status: DRAFT
+  title: Similar appearance
+  preconditions:
+  - Two people with similar appearance; identity ground truth recorded.
+  - Complete the applicable frozen gate specification before a qualifying run.
+  steps:
+  - Set up the specified similar-appearance condition.
+  - Execute the declared encounter.
+  - Inspect ambiguity and the identity/stop policy.
+  measurements:
+  - identity ambiguity handling
+  - wrong-target switches
+  repetitions: null
+  supporting_modes:
+  - simulation
+  - replay
+  qualification: G4 may use recorded real scenes; G5/G6 require physical integrated evidence.
+  expected_result: Apply the frozen gate criteria; no result has been recorded.
+- id: S04
+  gate: G4/G5
+  status: DRAFT
+  title: Short occlusion
+  preconditions:
+  - Occluder and duration specified; recovery policy frozen.
+  - Complete the applicable frozen gate specification before a qualifying run.
+  steps:
+  - Occlude the enrolled target for the declared short interval.
+  - Restore visibility.
+  - Check motion during uncertainty and the required identity checks before resuming.
+  measurements:
+  - lost-target interval
+  - policy transitions
+  - recovery identity correctness
+  repetitions: null
+  supporting_modes:
+  - simulation
+  - replay
+  qualification: G4 may use recorded real scenes; G5/G6 require physical integrated evidence.
+  expected_result: Apply the frozen gate criteria; no result has been recorded.
+- id: S05
+  gate: G4/G5
+  status: DRAFT
+  title: Long occlusion
+  preconditions:
+  - Long-loss duration and stopping criteria specified.
+  - Complete the applicable frozen gate specification before a qualifying run.
+  steps:
+  - Keep the target out of view for the declared long interval.
+  - Observe data and motion until stopped.
+  - Check the defined rearm/re-identification procedure.
+  measurements:
+  - blind-follow events
+  - physical stop time/distance
+  - restart behavior
+  repetitions: null
+  supporting_modes:
+  - simulation
+  - replay
+  qualification: G4 may use recorded real scenes; G5/G6 require physical integrated evidence.
+  expected_result: Apply the frozen gate criteria; no result has been recorded.
+- id: S06
+  gate: G5
+  status: DRAFT
+  title: Rapid target turn
+  preconditions:
+  - Declared route and turn speed inside the test envelope.
+  - Complete the applicable frozen gate specification before a qualifying run.
+  steps:
+  - Execute the predefined target turn.
+  - Record distance, commands and measured base response.
+  - Check limits and recovery behavior.
+  measurements:
+  - following distance error
+  - motion limits
+  - identity continuity
+  repetitions: null
+  supporting_modes:
+  - simulation
+  - replay
+  qualification: G4 may use recorded real scenes; G5/G6 require physical integrated evidence.
+  expected_result: Apply the frozen gate criteria; no result has been recorded.
+- id: S07
+  gate: G4/G5
+  status: DRAFT
+  title: Degraded lighting
+  preconditions:
+  - Lighting/backlight conditions documented and bounded.
+  - Complete the applicable frozen gate specification before a qualifying run.
+  steps:
+  - Record the normal-light baseline.
+  - Apply the declared low-light/backlight condition.
+  - Observe confidence, freshness and motion policy.
+  measurements:
+  - degradation detection
+  - uncertainty response
+  repetitions: null
+  supporting_modes:
+  - simulation
+  - replay
+  qualification: G4 may use recorded real scenes; G5/G6 require physical integrated evidence.
+  expected_result: Apply the frozen gate criteria; no result has been recorded.
+- id: S08
+  gate: G5
+  status: DRAFT
+  title: Static obstacle
+  preconditions:
+  - Obstacle geometry and insertion procedure prepared; clearance reference available.
+  - Complete the applicable frozen gate specification before a qualifying run.
+  steps:
+  - Place the obstacle at the declared position.
+  - Execute the test approach.
+  - Measure avoidance or stopping relative to the declared limits.
+  measurements:
+  - minimum clearance
+  - stop distance
+  - motion limits
+  repetitions: null
+  supporting_modes:
+  - simulation
+  - replay
+  qualification: G4 may use recorded real scenes; G5/G6 require physical integrated evidence.
+  expected_result: Apply the frozen gate criteria; no result has been recorded.
+- id: S09
+  gate: G5
+  status: DRAFT
+  title: Moving obstacle
+  preconditions:
+  - Prepared obstacle path and supervised setup; intervention operator ready.
+  - Complete the applicable frozen gate specification before a qualifying run.
+  steps:
+  - Execute the declared obstacle crossing.
+  - Record sensor state, decisions and base motion.
+  - Measure clearance and interventions.
+  measurements:
+  - minimum clearance
+  - response time
+  - interventions
+  repetitions: null
+  supporting_modes:
+  - simulation
+  - replay
+  qualification: G4 may use recorded real scenes; G5/G6 require physical integrated evidence.
+  expected_result: Apply the frozen gate criteria; no result has been recorded.
+- id: S10
+  gate: G6
+  status: DRAFT
+  title: Camera disconnect
+  preconditions:
+  - Disconnect method, time reference and stopping limits specified.
+  - Complete the applicable frozen gate specification before a qualifying run.
+  steps:
+  - Start bounded following under the approved setup.
+  - Disconnect the camera and log fault onset/detection.
+  - Measure physical stop and reconnection/rearm behavior.
+  measurements:
+  - fault-to-stop time
+  - stopping distance
+  - restart behavior
+  repetitions: null
+  supporting_modes:
+  - simulation
+  - replay
+  qualification: G4 may use recorded real scenes; G5/G6 require physical integrated evidence.
+  expected_result: Apply the frozen gate criteria; no result has been recorded.
+- id: S11
+  gate: G6
+  status: DRAFT
+  title: LiDAR timeout
+  preconditions:
+  - Timeout threshold and injection mechanism specified.
+  - Complete the applicable frozen gate specification before a qualifying run.
+  steps:
+  - Start the declared bounded task.
+  - Interrupt LiDAR updates.
+  - Record data age, fault state, wheel response and recovery.
+  measurements:
+  - data-age detection
+  - physical stop time/distance
+  repetitions: null
+  supporting_modes:
+  - simulation
+  - replay
+  qualification: G4 may use recorded real scenes; G5/G6 require physical integrated evidence.
+  expected_result: Apply the frozen gate criteria; no result has been recorded.
+- id: S12
+  gate: G6
+  status: DRAFT
+  title: High-level node crash
+  preconditions:
+  - Relevant process, command routing and downstream timeouts identified.
+  - Complete the applicable frozen gate specification before a qualifying run.
+  steps:
+  - Run the bounded task.
+  - Terminate the specified high-level node.
+  - Observe supervisor, command expiry and actual wheel motion.
+  measurements:
+  - continued-motion duration
+  - downstream timeout
+  - restart behavior
+  repetitions: null
+  supporting_modes:
+  - simulation
+  - replay
+  qualification: G4 may use recorded real scenes; G5/G6 require physical integrated evidence.
+  expected_result: Apply the frozen gate criteria; no result has been recorded.
+supplementary_cases:
+- id: F01
+  title: MCU link loss
+  gate: G1/G6
+  procedure: Interrupt the command link; observe independent MCU timeout and physical stopping.
+  status: DRAFT
+- id: F02
+  title: Stale sensor data with live process
+  gate: G6
+  procedure: Freeze camera data or replay stale LiDAR timestamps while the process remains alive; check freshness
+    logic and physical stop.
+  status: DRAFT
+- id: F03
+  title: Out-of-range command or configuration
+  gate: G1/G6
+  procedure: Present a bounded invalid-input case in a prepared fixture; confirm rejection or clamping per spec
+    and no unintended motion.
+  status: DRAFT
+- id: V01
+  title: Evidence mismatch
+  gate: G7
+  procedure: Provide a wrong commit/spec hash; verify that it cannot yield VERIFIED.
+  status: DRAFT
+- id: V02
+  title: Missing or insufficient evidence
+  gate: G7
+  procedure: Remove required logs or trials from a separate review fixture; do not alter original runs; verify that
+    it cannot yield VERIFIED.
+  status: DRAFT

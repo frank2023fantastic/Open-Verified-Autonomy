@@ -1,0 +1,39 @@
+schema_version: 1
+run_id: __RUN_ID__
+gate: __GATE__
+mode: __MODE__
+record_created_at_utc: __CREATED_AT__
+test_status: NOT_RUN
+started_at_utc: null
+ended_at_utc: null
+operator: null
+independent_reviewer: null
+tested_code_commit: null
+working_tree_dirty: null
+working_tree_diff_artifact: null
+firmware_revision: null
+configuration_sha256: null
+model_sha256: null
+acceptance:
+  source_path: null
+  revision: null
+  sha256: null
+  frozen_at_utc: null
+hardware:
+  base: null
+  computer: null
+  sensors: []
+  load_kg: null
+environment:
+  location_description: null
+  surface: null
+  lighting: null
+  temperature_c: null
+timing:
+  reference_clock: null
+  alignment_method: null
+  uncertainty_ms: null
+scenario_ids: []
+trial_count_planned: null
+trial_count_completed: 0
+notes: []

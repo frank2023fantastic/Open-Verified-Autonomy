@@ -1,0 +1,69 @@
+schema_version: 1
+gate: G2
+title: Repeatable point-to-point indoor navigation
+status: DRAFT
+revision: 0.1-draft
+owner_role: Partner
+independent_reviewer: null
+prerequisite_gates:
+- G1
+required_evidence_modes:
+- physical
+freeze_record:
+  frozen_at_utc: null
+  criterion_owner: null
+  reviewer: null
+required_decisions_before_freeze:
+  map_and_route_revision: null
+  start_goal_and_reset_protocol: null
+  surface_lighting_load: null
+  max_speed_m_s: null
+  max_acceleration_m_s2: null
+  goal_position_tolerance_m: null
+  goal_heading_tolerance_rad: null
+  trial_timeout_s: null
+  minimum_successful_trials_out_of_20: null
+  operator_intervention_definition: null
+  minimum_clearance_m: null
+  localization_failure_response: null
+  required_data_freshness_limits_ms: null
+criteria:
+- id: G2-C01
+  mandatory: true
+  claim: All scheduled trials are recorded under a fixed protocol.
+  measurement_method: Execute 20 planned trials using the frozen route/reset protocol; count all outcomes and interventions.
+  evidence_required:
+  - 20-trial ledger
+  - Nav2 results
+  - rosbag2
+  - configuration/map hashes
+  acceptance:
+    planned_trials: 20
+    unreported_trials: 0
+- id: G2-C02
+  mandatory: true
+  claim: Navigation meets the declared completion and accuracy criteria.
+  measurement_method: Check terminal pose against the chosen reference, trial duration, intervention status and
+    success count.
+  evidence_required:
+  - pose reference
+  - Nav2 results
+  - trial ledger
+  - calculation method
+  acceptance: Predeclared success count, pose tolerances and time limits are met; no post-hoc exclusion of failed
+    trials.
+- id: G2-C03
+  mandatory: true
+  claim: Protective behavior remains effective during navigation.
+  measurement_method: Check motion limits, obstacle clearance and defined behavior on localization/required-data
+    loss.
+  evidence_required:
+  - sensor and wheel telemetry
+  - state transitions
+  - video
+  - events
+  acceptance:
+    unresolved_mandatory_safety_violations: 0
+notes:
+- A 20-trial result is limited to its documented operating conditions.
+- Define whether reset, intervention or timeout counts as failure before testing.

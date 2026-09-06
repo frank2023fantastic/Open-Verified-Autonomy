@@ -1,0 +1,45 @@
+schema_version: 1
+gate: G7
+title: Evidence review and bounded release decision
+status: DRAFT
+revision: 0.1-draft
+owner_role: Independent reviewer
+independent_reviewer: null
+prerequisite_gates:
+- G6
+required_evidence_modes:
+- review
+freeze_record:
+  frozen_at_utc: null
+  criterion_owner: null
+  reviewer: null
+required_decisions_before_freeze:
+  reviewer_identity_and_independence: null
+  candidate_revision_and_configuration: null
+  mandatory_evidence_manifest: null
+  recomputation_method: null
+  verifier_negative_test_inputs: null
+criteria:
+- id: G7-C01
+  mandatory: true
+  claim: Every mandatory capability claim is supported by inspectable evidence.
+  measurement_method: Apply REVIEW_PROTOCOL.md; independently check source artifacts, versions, trial counts and
+    metric calculations.
+  evidence_required:
+  - G1-G6 bundles
+  - criterion-level review
+  - limitations
+  - reviewer identity
+  acceptance: No unresolved mandatory criterion, missing raw evidence, or version mismatch remains.
+- id: G7-C02
+  mandatory: true
+  claim: The verification process rejects misleading or incomplete evidence.
+  measurement_method: Challenge the reviewer/tool with missing logs, mismatched commit, inadequate trial counts
+    and simulated evidence for a physical requirement.
+  evidence_required:
+  - negative verification cases
+  - actual verdicts
+  acceptance:
+    false_verified_verdicts: 0
+notes:
+- No automated verifier exists yet. Manual independent review can be the first implementation.

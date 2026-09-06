@@ -1,0 +1,46 @@
+schema_version: 1
+gate: G6
+title: Integrated fault behavior
+status: DRAFT
+revision: 0.1-draft
+owner_role: Partner
+independent_reviewer: null
+prerequisite_gates:
+- G5
+required_evidence_modes:
+- physical
+freeze_record:
+  frozen_at_utc: null
+  criterion_owner: null
+  reviewer: null
+required_decisions_before_freeze:
+  fault_injection_fixture_and_sequence: null
+  required_data_age_limits_ms: null
+  max_fault_to_stop_ms: null
+  max_stopping_distance_m: null
+  clock_alignment: null
+  repetitions_per_fault: null
+  rearm_rules: null
+  additional_fault_coverage: null
+criteria:
+- id: G6-C01
+  mandatory: true
+  claim: Required sensor/node faults produce the defined protective behavior.
+  measurement_method: Execute S10-S12 plus frozen camera frames and stale LiDAR messages; measure actual stopping.
+  evidence_required:
+  - fault events
+  - data-age traces
+  - MCU/wheel logs
+  - video
+  acceptance: Every required fault meets frozen detection, stopping and restart conditions.
+- id: G6-C02
+  mandatory: true
+  claim: MCU link loss and unsafe inputs do not retain motion permission.
+  measurement_method: Execute F01-F03 from the supplementary catalog under the declared fixture and bounded conditions.
+  evidence_required:
+  - command/link/configuration traces
+  - wheel telemetry
+  - events
+  acceptance: Command expiry, range rejection and safe startup behavior match the frozen specification.
+notes:
+- Additional overload, encoder anomaly and undervoltage work must be risk-reviewed and specified before inclusion.

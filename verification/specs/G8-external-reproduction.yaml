@@ -1,0 +1,36 @@
+schema_version: 1
+gate: G8
+title: Independent reproduction of the core demo
+status: DRAFT
+revision: 0.1-draft
+owner_role: External reproducer
+independent_reviewer: null
+prerequisite_gates:
+- G7
+required_evidence_modes:
+- physical
+freeze_record:
+  frozen_at_utc: null
+  criterion_owner: null
+  reviewer: null
+required_decisions_before_freeze:
+  reproducer_identity: null
+  release_commit_or_tag: null
+  compatible_hardware_configuration: null
+  documented_setup_procedure: null
+  reproduction_scenarios_and_trial_counts: null
+  assistance_and_deviation_log: null
+criteria:
+- id: G8-C01
+  mandatory: true
+  claim: Another person can reproduce the bounded core demo from published instructions.
+  measurement_method: Reproduce from the pinned revision and hardware record; log setup, assistance, deviations
+    and actual scenario outcomes.
+  evidence_required:
+  - independent build log
+  - environment lock record
+  - physical run evidence
+  - review
+  acceptance: The frozen reproduction criteria pass without undocumented steps; all assistance and deviations are
+    visible.
+notes: []

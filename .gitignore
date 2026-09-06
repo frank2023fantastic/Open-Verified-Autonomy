@@ -1,0 +1,26 @@
+# Local environments and credentials
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# ROS build products
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Store raw recordings/model weights externally and index them with hashes
+*.bag
+*.db3
+*.mcap
+*.mp4
+*.mov
+*.avi
+*.onnx
+*.rknn
+*.pt
+*.pth
+experiments/**/raw/

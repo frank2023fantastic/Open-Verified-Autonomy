@@ -1,0 +1,77 @@
+schema_version: 1
+gate: G1
+title: Manual control and independent stop behavior
+status: DRAFT
+revision: 0.1-draft
+owner_role: Partner
+independent_reviewer: null
+prerequisite_gates:
+- G0
+required_evidence_modes:
+- physical
+freeze_record:
+  frozen_at_utc: null
+  criterion_owner: null
+  reviewer: null
+required_decisions_before_freeze:
+  test_area_surface_and_load: null
+  low_test_speed_m_s: null
+  max_speed_m_s: null
+  max_acceleration_m_s2: null
+  command_timeout_ms: null
+  max_fault_to_stop_ms: null
+  max_stopping_distance_m: null
+  stopped_wheel_speed_threshold_m_s: null
+  stopped_dwell_ms: null
+  encoder_error_tolerance: null
+  repetitions_per_case: null
+  clock_alignment_and_uncertainty: null
+  hardware_stop_coast_or_brake_behavior: null
+  explicit_rearm_procedure: null
+criteria:
+- id: G1-C01
+  mandatory: true
+  claim: Startup, reset, and reconnection do not cause unexpected motion.
+  measurement_method: Observe wheel telemetry and video through startup, command-link return and explicit arm/disarm.
+  evidence_required:
+  - video
+  - wheel telemetry
+  - command/state log
+  acceptance:
+    unexpected_motion_events: 0
+- id: G1-C02
+  mandatory: true
+  claim: Manual commands and encoder observations agree within declared limits.
+  measurement_method: Exercise bounded forward/reverse/turn commands; compare distance and wheel observations against
+    the chosen reference.
+  evidence_required:
+  - commands
+  - encoder/odometry log
+  - independent motion reference
+  acceptance: Declared speed/acceleration and encoder tolerance are met in each planned trial.
+- id: G1-C03
+  mandatory: true
+  claim: Physical emergency stop produces the required physical stop.
+  measurement_method: Assert the real stop control at the declared speed/load; measure actuation-to-stopped time
+    and distance.
+  evidence_required:
+  - electrical stop-path evidence
+  - aligned video
+  - wheel telemetry
+  - events
+  acceptance: Time/distance limits are met; no restart until explicit rearm.
+- id: G1-C04
+  mandatory: true
+  claim: Expired commands stop the base independently of the high-level computer.
+  measurement_method: Stop command publishing, terminate the high-level control process, and interrupt the MCU link
+    in separate trials.
+  evidence_required:
+  - fault timestamps
+  - MCU state/timeout log
+  - wheel telemetry
+  - video
+  acceptance: Each declared timeout/fault-to-stop/distance limit is met; reconnection alone does not restart motion.
+notes:
+- Record physical time and distance, not only zero cmd_vel.
+- Simulation and secured wheels-clear tests support preparation; they do not prove floor stopping distance.
+- All required limits and trial counts must be resolved before freezing.

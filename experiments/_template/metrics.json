@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "run_id": "__RUN_ID__",
+  "status": "NOT_RUN",
+  "calculation_method_revision": null,
+  "results": [],
+  "note": "Add actual criterion_id, measured value, unit, acceptance limit, result and evidence references after testing."
+}

@@ -1,0 +1,63 @@
+schema_version: 1
+gate: G0
+title: Architecture and startup readiness
+status: DRAFT
+revision: 0.1-draft
+owner_role: Both + mentor
+independent_reviewer: null
+prerequisite_gates: []
+required_evidence_modes:
+- review
+- dry_run
+freeze_record:
+  frozen_at_utc: null
+  criterion_owner: null
+  reviewer: null
+required_decisions_before_freeze:
+  named_task_owners: null
+  available_equipment_and_budget: null
+  candidate_hardware_combination: null
+  electrical_stop_path_source: null
+  software_compatibility_sources: null
+  risk_and_open_item_review: null
+criteria:
+- id: G0-C01
+  mandatory: true
+  claim: The v0.1 scope and three authority planes are understood and reviewed.
+  measurement_method: Both teammates explain scope, command authority, failure behavior, and evidence limits.
+  evidence_required:
+  - architecture document
+  - review notes
+  - named reviewers
+  acceptance: All three planes and their boundaries documented; reviewer findings resolved or explicitly tracked.
+- id: G0-C02
+  mandatory: true
+  claim: A compatible starting system and its unresolved risks are documented.
+  measurement_method: Compare at least three suppliers and inspect the actual protocol, stop-path and driver sources.
+  evidence_required:
+  - BOM
+  - supplier comparison
+  - stop-path diagram
+  - compatibility record
+  acceptance: One proposed combination is documented; blocking questions affecting first bringup are resolved.
+- id: G0-C03
+  mandatory: true
+  claim: The first robot tests have a measurable plan.
+  measurement_method: Review G1/G2 drafts, measurement equipment, trial counts and criteria ownership.
+  evidence_required:
+  - G1 draft
+  - G2 draft
+  - review notes
+  acceptance: No missing method is silently treated as success; final hardware-specific freeze is required before
+    qualifying tests.
+- id: G0-C04
+  mandatory: true
+  claim: The team can create and explain a traceable run record.
+  measurement_method: Create a labeled dry-run record and trace each required field to its future source.
+  evidence_required:
+  - dry-run directory
+  - logging gaps
+  - team agreement
+  acceptance: Seven records are understood; no fake measurements or verification claims are introduced.
+notes:
+- G0 completion requires actual team review and selection work, not just the existence of these files.
