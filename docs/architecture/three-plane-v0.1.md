@@ -3,11 +3,15 @@
 Status: DRAFT FOR G0 REVIEW. This expands the published mission; it is not a tested implementation.
 Scope: one enrolled-target following task on a supervised, low-speed indoor differential-drive robot.
 
+Stage 1 maps and compares the vendor implementation with this target architecture; it does not
+assume the vendor already implements every boundary. Track gaps before formal qualification.
+See the [two-stage plan](../plan/TWO_STAGE_PLAN.md).
+
 ## Authority and execution
 
 | Plane | Execution location | Owns | Must not do |
 | --- | --- | --- | --- |
-| Autonomy | Initial RK3588 / development computer | Perception, target identity, localization, plans, requested velocity | Bypass the supervisor or drive motors directly. |
+| Autonomy | Selected kit computer / development computer; later RK3588 | Perception, target identity, localization, plans, requested velocity | Bypass the supervisor or drive motors directly. |
 | Safety | Deterministic supervisor plus independent MCU and stop circuitry | Motion limits, freshness/fault policy, command expiry, protective stop | Depend on a generative model or cloud reply for a stop. |
 | Verification | Development computer, test runner, or later CI | Criteria, scenarios, evidence checks, release findings | Treat a model's confidence or its own prose as physical evidence. |
 

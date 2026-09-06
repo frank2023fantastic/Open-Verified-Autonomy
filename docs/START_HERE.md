@@ -1,65 +1,48 @@
-# Start here: the first 72 hours
+# Start here: learn on a mature robot
 
-The first outcome is a shared, testable G0 plan and a reproducible development baseline.
-The repository scaffold is ready; no hardware or autonomy gate has passed.
-Times below are suggested working sessions, not deadlines that override evidence.
+Frank and Harry's first outcome is a reproducible vendor baseline and practical understanding.
+Use the [two-stage plan](plan/TWO_STAGE_PLAN.md): mature complete kit now, RK3588 later.
+No robot capabilities or evidence gates have been completed.
 
-## Session 1: agree on the work (about 2 hours)
+## 1. Agree and select
 
-Both teammates read the README and [three-plane architecture](architecture/three-plane-v0.1.md).
-Each explains the goal, stop authority, and what could make a demo misleading.
+Start [T01 / Issue #1](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/1):
+confirm Harry's GitHub handle, available equipment, weekly time, roles and Stage 1 budget.
+Frank is proposed to lead software/perception; Harry chassis integration/navigation.
+Both should operate the kit and review each other's changes.
 
-- Frank owns product scope, perception/identity, GitHub organization, and English build logs.
-- Harry, Frank's classmate and robotics/test partner, is proposed to lead chassis integration, navigation, and test setup; confirm the working agreement in T01.
-- Record Harry's GitHub handle, available equipment, available time, and one owner per task in [TEAM](plan/TEAM.md).
-- Start T01 and T02 from [BACKLOG](plan/BACKLOG.md). Add questions to the task; do not guess hardware facts.
+In T03 compare three complete learning kits, prioritizing tutorials, recoverable supplied software,
+source/protocol access, stop behavior and included hardware. Use [supplier questions](../hardware/supplier-checklist.md).
+Use the selected kit's supported computer; RK3588 compatibility is a later question.
 
-Output: a short shared scope statement, named task owners, and an annotated interface draft.
+## 2. Get a reproducible baseline
 
-## Session 2: select a compatible starting platform
+T04 records the actual PC and vendor image, sources, versions and backup/recovery procedure.
+Start with non-motion examples: camera viewing, sensor readings and telemetry.
+Have the other teammate repeat the startup from notes.
+T02 maps the actual data/control flow and identifies stop controls and unknowns.
 
-Harry compares at least three chassis suppliers using [the supplier checklist](../hardware/supplier-checklist.md).
-Frank records the existing development computer and candidate board software combinations using
-[the development setup record](setup/development-environment.md).
+## 3. Run bounded tutorials
 
-Check open command/encoder protocols, MCU command timeout, the actual electrical stop path,
-ROS 2 documentation, and whether the main computer can be omitted from the chassis order.
-Record dated quotes and evidence in the BOM and selection record. Unknown answers stay unknown.
-The first implementation target can be an available computer and simulation while selection continues.
+Complete T05's motion-readiness checks under the [two-stage plan](plan/TWO_STAGE_PLAN.md)
+before supervised manual movement. Resolve unclear stopping behavior with the supplier.
+Proceed through vendor sensor, mapping/navigation and available vision tutorials in T08,
+reviewing requirements before each new motion mode.
+The formal 20-trial navigation protocol is later work, not a prerequisite for this first manual run.
 
-Output: supplier comparison and one candidate system with unresolved compatibility items.
+## 4. Understand and change one thing
 
-## Session 3: make G1 and G2 measurable
+Keep T07's short learning log from the beginning: goal, version, commands, observation, failure,
+evidence and next action. Make a reversible change such as logging measured wheel speed or
+lowering a speed cap, preserve rollback, and have the teammate repeat the result.
+Investigate a real failure; do not invent one to complete a checklist.
 
-Together review [G1](../verification/specs/G1-manual-robot.yaml) and
-[G2](../verification/specs/G2-navigation.yaml).
-Choose the test area, measured limits, repetition counts, instruments, and stop criteria.
-Define both fault-to-stop time and physical stopping distance. Record who reviewed the criteria.
-Do not turn a null threshold into a made-up value just to complete the file.
+## Next decision
 
-Output: versioned acceptance drafts ready for hardware-specific review. Freeze only after required
-fields and measurement methods are resolved, before the corresponding qualifying experiment.
+Review T08's learning outcomes. Continue learning where understanding is missing.
+Formal verification on the kit and a motivated RK3588 desktop comparison are possible next steps;
+neither requires replacing working hardware immediately.
 
-## Session 4: rehearse the evidence workflow
-
-From the repository root, with Python 3.9 or newer:
-
-```bash
-python3 tools/new_experiment.py --run-id practice-001 --gate G1 --mode dry_run
-```
-
-This creates `experiments/practice-001/` with seven record templates. It does not run the robot or a test.
-The folder is a practice record; keep `NOT_RUN` / `NOT_REVIEWED` and do not put invented measurements in it.
-Walk through how real timestamps, wheel speed, video, hashes, metrics, and a second person's review will connect.
-Use a fresh run ID for the later real experiment.
-
-Output: one clearly labeled practice record and a list of logging gaps. See [experiment instructions](../experiments/README.md).
-
-## Next: G0 review, then G1
-
-Use [G0 acceptance](../verification/specs/G0-architecture.yaml) to review scope, interfaces,
-hardware compatibility, and the test plan. Completing the scaffold alone does not satisfy G0.
-After G0 and the G1 specification are ready, follow [the bench bringup checklist](../hardware/bringup-checklist.md).
-
-Each person records one finding, one unresolved question, and one next action. The first short build log
-should explain the goal and the most likely failure modes. Use [the roadmap](plan/ROADMAP.md) to see what follows.
+G0–G8 remain uncompleted. Full frozen acceptance and evidence records apply before qualifying
+tests; vendor tutorial outcomes are learning observations. See [ROADMAP](plan/ROADMAP.md),
+[BACKLOG](plan/BACKLOG.md) and [STATUS](plan/STATUS.md).

@@ -3,7 +3,9 @@
 Status: no model selected, converted, or benchmarked for this robot.
 Lead: Frank. Use [the model record](model-record.template.yaml) for every candidate.
 
-Start with a compact detection model and a reproducible CPU/offline baseline. Record conversion and
+Stage 1 starts by reproducing and understanding the vendor's supplied vision examples.
+Preserve the original model/configuration and record actual outcomes before modifying them.
+For later independent model work, start with a compact detection model and a reproducible CPU/offline baseline. Record conversion and
 quantization choices before RK3588 measurements. Separate model-only inference time from camera-to-decision
 latency; record dropped frames, measurement conditions, temperature, and sustained runtime.
 

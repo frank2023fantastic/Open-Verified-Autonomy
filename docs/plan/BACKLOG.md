@@ -1,161 +1,139 @@
 # Task backlog
 
-GitHub Issues are the execution record. This file defines task scope and dependency order.
-Initial Issues are created for T01–T08; T09–T12 are later work to expand when entry evidence is ready.
-Owner roles below are proposed. Record named owners/reviewers at kickoff; no GitHub assignee is presumed.
+Updated 2026-09-06 for the [two-stage plan](TWO_STAGE_PLAN.md).
+Existing Issue numbers are retained; scope and dependencies are rescheduled.
+Owners are proposed and Harry's GitHub handle remains to be confirmed.
 
-| Task | Gate | Lead | Depends on | Deliverable |
+| Task | When | Lead | Depends on | Outcome |
 | --- | --- | --- | --- | --- |
-| [T01](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/1) | G0 | Frank + partner | None | Confirm team roles, equipment and working agreement |
-| [T02](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/2) | G0 | Partner | T01 | Review command authority, interfaces and the stop path |
-| [T03](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/3) | G0 | Partner | T01 | Compare three chassis suppliers and propose a compatible BOM |
-| [T04](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/4) | G0 | Frank | T01 | Record the development environment and first reproducible setup |
-| [T05](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/5) | G0/G1 | Partner | T02, T03 | Complete hardware-specific G1 acceptance and measurement methods |
-| [T06](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/6) | G0/G2 | Partner | T02, T04 | Define the 20-trial navigation protocol |
-| [T07](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/7) | G0 | Frank | T04 | Rehearse evidence capture with one labeled dry-run record |
-| [T08](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/8) | G0/G1 | Both | T03, T04, T05, T06, T07 | Review G0 readiness and prepare the first manual-robot test |
-| T09 | G1 | Partner | T08 | Execute and cross-review manual control and stop tests |
-| T10 | G2 | Partner | T09 | Implement navigation and execute the frozen 20-trial protocol |
-| T11 | G3/G4 | Frank | T10 | Benchmark edge perception and build enrolled-target identity |
-| T12 | G5-G8 | Both | T11 | Integrate following, inject faults and obtain independent reproduction |
+| [T01](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/1) | Stage 1 — start | Frank + Harry | None | Confirm Frank/Harry roles, time and Stage 1 budget |
+| [T02](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/2) | Stage 1 — understand | Harry | T01 | Explain the chosen kit's data flow and stop controls |
+| [T03](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/3) | Stage 1 — select | Harry | T01 | Compare mature complete kits and select a learning baseline |
+| [T04](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/4) | Stage 1 — set up | Frank | T01 | Restore the vendor environment and reproduce a first example |
+| [T05](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/5) | Stage 1 — before motion | Harry | T02, T03 | Check supervised tutorial motion and stop readiness |
+| [T06](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/6) | Later formal validation — deferred | Harry | T08 | Later: define the formal 20-trial navigation protocol |
+| [T07](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/7) | Stage 1 — record and review | Frank | T01 | Keep a learning log and rehearse evidence capture |
+| [T08](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/8) | Stage 1 — hands-on outcome | Frank + Harry | T03, T04, T05 | Reproduce core tutorials, make one change and review Stage 1 |
 
-## Execution rules
+T01 starts first. T02/T03/T04 preparation can overlap, with one active implementation task per person.
+T04 completion needs the chosen kit; T05 precedes any T08 motion.
+T07 accompanies learning and finishes with an actual exercise log.
+T06 does not block T08. Unsupported kit examples stay explicitly unresolved.
 
-- T01 starts first. T02/T03/T04 can be divided between the two teammates after kickoff.
-- Keep one active implementation task per person; pair on interface and physical-test review.
-- A dependency is complete only when its checklist and relevant evidence are recorded.
-- Closing a task does not close a gate. Record actual gate decisions separately.
-- T08 prepares G1; it does not fabricate a completed manual-robot test.
-- Later tasks are deliberately coarse and must be split before implementation.
+## T01: Confirm Frank/Harry roles, time and Stage 1 budget
 
-## T01: Confirm team roles, equipment and working agreement
+Lead: Frank + Harry. Reviewer: Mentor.
 
-Gate: G0. Lead: Frank + partner. Reviewer: Mentor.
-
-Files: `docs/plan/TEAM.md`, `docs/plan/STATUS.md`.
-
-- [ ] Record partner name/handle and equipment actually available.
-- [ ] Agree on time and hardware spending envelope.
-- [ ] Choose one owner and a different reviewer per first task.
+- [ ] Record Harry's GitHub handle and equipment actually available; Harry is Frank's classmate.
+- [ ] Agree on weekly time and a Stage 1 complete-kit budget; keep a later RK3588 budget separate.
+- [ ] Confirm one owner and a different reviewer per task; both teammates should operate the kit.
 - [ ] Record the maintainer responsible for the pending license decision.
 
-## T02: Review command authority, interfaces and the stop path
+## T02: Explain the chosen kit's data flow and stop controls
 
-Gate: G0. Lead: Partner. Reviewer: Frank + mentor.
+Lead: Harry. Reviewer: Frank + mentor.
 
-Files: `docs/architecture/three-plane-v0.1.md`, `docs/architecture/interfaces-v0.1.md`.
+Start from candidate documentation, then finish against the selected T03 kit. Designing a replacement controller or full safety supervisor is not this task.
 
-- [ ] Both teammates explain the three-plane boundary.
-- [ ] List units, frames, clocks and the command-expiry contract.
-- [ ] Record the required electrical stop behavior and hardware questions to ask suppliers.
-- [ ] Record review findings and the owner of each unresolved item.
+- [ ] Sketch the vendor system: sensors, computer, ROS nodes, controller and motors; annotate sources and unknowns.
+- [ ] Locate manual/autonomous command selection, units, measured encoder feedback and actual stop controls.
+- [ ] Read the vendor's command-loss, startup and rearm behavior; use this in T05 before floor motion.
+- [ ] Both teammates explain the flow and compare it with the project's three-plane target; log gaps without implementing every project interface now.
 
-## T03: Compare three chassis suppliers and propose a compatible BOM
+## T03: Compare mature complete kits and select a learning baseline
 
-Gate: G0. Lead: Partner. Reviewer: Mentor + Frank.
+Lead: Harry. Reviewer: Frank + mentor.
 
-Files: `hardware/bom.csv`, `hardware/selection.md`.
+Replace the earlier bare-chassis/C30D-first procurement direction. No exact kit is selected by this issue. The earlier L150 proposal remains a historical Stage 2 reference. Formal G0 supplier-evidence requirements remain in the unchanged specification.
 
-- [ ] Collect dated answers from at least three suppliers.
-- [ ] Attach protocol/source, watchdog, stop-path and ROS 2 evidence.
-- [ ] Confirm whether the base can be bought without the main computer.
-- [ ] Record itemized prices and a recommended combination with unresolved compatibility items.
+- [ ] Compare three mature complete-kit candidates using dated product, tutorial and source links; record unknown answers honestly.
+- [ ] Prioritize reproducible ROS 2 tutorials, a recoverable supplied image, accessible source/protocols, support, stop controls and complete working sensor/compute combinations.
+- [ ] Get an itemized current quote for the preferred package including computer, sensors, controller, battery, charger and necessary accessories; record the decision within the agreed budget.
+- [ ] Check whether the controller and sensors can later be reused with a different computer. Treat RK3588 compatibility as future investigation, not a Stage 1 purchase gate.
+- [ ] Explain the chosen geometry; differential drive remains preferred for v0.1, while an easier mature kit with another geometry needs an explicit learning-only tradeoff and future reuse note.
 
-## T04: Record the development environment and first reproducible setup
+## T04: Restore the vendor environment and reproduce a first example
 
-Gate: G0. Lead: Frank. Reviewer: Partner.
+Lead: Frank. Reviewer: Harry.
 
-Files: `docs/setup/development-environment.md`, `third_party/upstream-register.csv`.
+PC preparation may start after T01; completion needs the selected kit or a clearly identified available equivalent. Motion examples require T05 first.
 
-- [ ] Record the actual development computer and OS.
-- [ ] Choose and document a candidate ROS 2/simulator setup from official sources.
-- [ ] Exercise a minimal setup example and preserve exact commands/errors.
-- [ ] Separate PC-only setup from untested RK3588/driver compatibility.
+- [ ] Record the actual development computer; after T03 selection pin the supplied board, vendor image, ROS 2 and firmware versions.
+- [ ] Record backup/recovery instructions and preserve the original configuration before editing.
+- [ ] Follow the official quick start and reproduce a non-motion example such as camera viewing or telemetry; record exact commands, errors and sources.
+- [ ] Have Harry repeat the setup/restart from the notes; distinguish exercised steps from recovery instructions not yet tested.
+- [ ] Use the vendor-supported runtime first. Do not require RKNN conversion, a custom OS image or RK3588 migration.
 
-## T05: Complete hardware-specific G1 acceptance and measurement methods
+## T05: Check supervised tutorial motion and stop readiness
 
-Gate: G0/G1. Lead: Partner. Reviewer: Frank + mentor.
+Lead: Harry. Reviewer: Frank + mentor.
 
-Files: `verification/specs/G1-manual-robot.yaml`, `hardware/bringup-checklist.md`.
+- [ ] Record the exact vendor procedure, operator/observer, bounded test area, actual low-speed setting and immediately accessible physical drive stop.
+- [ ] Check power, mounts, cables and startup/disarmed behavior against vendor documentation; use a supported secured-base setup for initial movement checks.
+- [ ] Observe manual stop, command/link loss and explicit restart behavior before floor motion; record coasting or braking and unresolved behavior.
+- [ ] Review readiness with the mentor; if stopping cannot be established, continue non-motion learning and resolve it with the supplier.
+- [ ] Record the limited scope and results as tutorial observations, with no G1 PASS or assumed stopping distance.
 
-- [ ] Resolve speed, command timeout, stopping time/distance and measurement uncertainty.
-- [ ] Define repetitions, measured-stop condition and explicit rearm checks.
-- [ ] Include physical stop, process crash and MCU link-loss trials.
-- [ ] Record independent review and freeze only when all required fields are resolved.
+Preserved formal work: Before qualifying G1 runs, still resolve numerical speed/timeout/stop-time/stop-distance limits and uncertainty, trial counts, measured-stop definition, process-crash/link-loss tests and rearm checks. A separate reviewer must review and freeze the full G1 specification. These original requirements move to T09's formal entry preparation; tutorial readiness does not satisfy them.
 
-## T06: Define the 20-trial navigation protocol
+## T06: Later: define the formal 20-trial navigation protocol
 
-Gate: G0/G2. Lead: Partner. Reviewer: Frank.
+Lead: Harry. Reviewer: Frank.
 
-Files: `verification/specs/G2-navigation.yaml`.
+Not a prerequisite for the first manual run or vendor navigation tutorial. Preserve failed learning attempts separately; do not relabel selected tutorial successes as the formal 20 trials.
 
-- [ ] Define route/reset procedure, pose reference and per-trial timeout.
-- [ ] Set the required success count out of 20 and intervention/failure rules before tests.
-- [ ] Define speed, clearance and localization/data-loss behavior.
-- [ ] Record review; complete hardware-dependent details before freezing the qualifying spec.
+- [ ] Use the reproduced vendor mapping/navigation baseline to choose a route, reset procedure, pose reference and per-trial timeout.
+- [ ] Set the required success count out of 20 and intervention/failure rules before qualifying tests.
+- [ ] Define speed, clearance and localization/data-loss behavior and measurement methods.
+- [ ] Record review and complete hardware-dependent details before freezing the qualifying specification.
 
-## T07: Rehearse evidence capture with one labeled dry-run record
+## T07: Keep a learning log and rehearse evidence capture
 
-Gate: G0. Lead: Frank. Reviewer: Partner.
+Lead: Frank. Reviewer: Harry.
 
-Files: `experiments/`, `verification/verifiers/REVIEW_PROTOCOL.md`.
+- [ ] For each exercise record goal, kit/software version, source tutorial, actual commands, expected/observed behavior, failures and next step.
+- [ ] Link an actual screenshot, video or telemetry record when available; the teammate repeats or reviews the observation.
+- [ ] Optionally rehearse the seven-file format with new_experiment.py as dry_run; keep NOT_RUN / NOT_REVIEWED and never invent measurements.
+- [ ] Record where evidence lives and what instrumentation is missing. Complete one real learning log as T04/T08 work proceeds.
 
-- [ ] Use new_experiment.py to create a uniquely named dry_run directory.
-- [ ] Explain where each metadata field, timestamp and raw artifact will come from.
-- [ ] Record missing instrumentation and storage decisions.
-- [ ] Keep practice results NOT_RUN / NOT_REVIEWED; review does not claim physical evidence.
+Preserved formal work: The seven-file dry-run exercise remains mandatory before formal G0 completion under its existing specification. Full qualifying evidence bundles are not required for every initial learning exercise; actual physical tutorials must not be labeled dry_run.
 
-## T08: Review G0 readiness and prepare the first manual-robot test
+## T08: Reproduce core tutorials, make one change and review Stage 1
 
-Gate: G0/G1. Lead: Both. Reviewer: Mentor.
+Lead: Frank + Harry. Reviewer: Mentor + teammate who did not author the change.
 
-Files: `verification/specs/G0-architecture.yaml`, `hardware/bringup-checklist.md`, `docs/plan/STATUS.md`.
+No kit demonstrations or learning milestones complete G0–G8. The former T08 formal G0/G1 readiness review is preserved as a prerequisite to T09 in BACKLOG and ROADMAP. RK3588 migration is not automatically authorized by a successful demo.
 
-- [ ] Review the actual G0 evidence and record open blockers.
-- [ ] Record a supported G0 verdict/decision without treating scaffold checks as robot evidence.
-- [ ] Confirm G1 specification, test fixture, operator, stop access and recorder readiness.
-- [ ] Identify the next bounded bench task; run it only when its entry conditions are met.
+- [ ] Start with a bounded manual-control exercise after T05; do not wait for the formal 20-trial protocol.
+- [ ] Progress through sensor reading, vendor mapping/navigation and, where supplied, visual-following examples. Review each motion mode's stopping and supervision needs before use; record missing/unsupported features explicitly.
+- [ ] Explain the relevant data/control flow and have both teammates restart and operate the baseline from notes.
+- [ ] Make one reversible, understood change such as extra wheel-telemetry logging or a lower speed cap; keep a diff, rollback and before/after observation.
+- [ ] Record one real failure, investigate it and document a repeat check; use T07's lightweight log.
+- [ ] Review what each teammate can explain and reproduce. Record whether to keep learning, pursue formal validation on the kit, or prepare an RK3588 desktop comparison with a concrete motivation.
 
-## T09: Execute and cross-review manual control and stop tests
+## Later formal work: T09–T12
 
-Gate: G1. Lead: Partner. Reviewer: Frank + mentor.
+These have no active Issues yet. Split them into bounded tasks when ready.
+Formal verification can use the mature kit; RK3588 is not an entry dependency.
 
-Files: `firmware/`, `ros2_ws/src/`, `experiments/`, `docs/plan/STATUS.md`.
+- **T09 / G1:** after T08, complete the former T08 formal G0 review: actual supplier/compatibility
+  evidence, G1/G2 drafts, required seven-file dry-run record and human G0 decision.
+  Complete and independently freeze G1 criteria (the deferred T05 work), confirm fixture/operator/
+  recorder readiness, then execute and cross-review manual-control and stop trials.
+- **T10 / G2:** after T09 and T06, pin map/description/drivers, run all 20 qualifying trials,
+  preserve failures/interventions, calculate metrics and record the G2 decision.
+- **T11 / G3–G4:** after T10 for gate decisions, benchmark the chosen backend and enrolled-target
+  identity under separately frozen specifications. Offline learning can happen earlier.
+  Resolve any backend-specific draft wording before freeze; detection FPS is not identity evidence.
+- **T12 / G5–G8:** after G4, split following, integrated fault injection, independent review and
+  external reproduction into tasks. Preserve S01–S12 and supplementary required fault coverage.
 
-- [ ] Implement only the required base interface and logging.
-- [ ] Execute the frozen G1 protocol on the actual base.
-- [ ] Retain all trials, failures and measured stopping evidence.
-- [ ] Record independent review and human gate decision.
+## Later platform work: T13 — RK3588 desktop comparison
 
-## T10: Implement navigation and execute the frozen 20-trial protocol
+Create an Issue when T08's review identifies a concrete motivation, budget and owner.
+Keep the original system working. Compare equivalent sensor/model inputs on a selected RK3588
+board without motor authority, record power/thermal/driver limits, then decide whether migration
+is justified. Revalidate motion and fault behavior before adopting the new computer.
+This task does not inherit a capability verdict from either platform.
 
-Gate: G2. Lead: Partner. Reviewer: Frank.
-
-Files: `ros2_ws/src/`, `experiments/`, `docs/plan/STATUS.md`.
-
-- [ ] Pin the robot description, map, driver and navigation configuration.
-- [ ] Execute all 20 scheduled trials and retain interventions/failures.
-- [ ] Calculate metrics from raw results.
-- [ ] Cross-review evidence and record the G2 decision.
-
-## T11: Benchmark edge perception and build enrolled-target identity
-
-Gate: G3/G4. Lead: Frank. Reviewer: Partner.
-
-Files: `ai/`, `ros2_ws/src/`, `verification/specs/G3-edge-ai.yaml`, `verification/specs/G4-target-identity.yaml`.
-
-- [ ] Freeze each gate specification before its qualifying runs.
-- [ ] Record reproducible model conversion and sustained RK3588 measurements.
-- [ ] Implement explicit enrollment and identity/uncertainty policy.
-- [ ] Complete separate G3 then G4 evidence decisions; do not infer identity quality from detection FPS.
-
-## T12: Integrate following, inject faults and obtain independent reproduction
-
-Gate: G5-G8. Lead: Both. Reviewer: Independent reviewer + external reproducer.
-
-Files: `verification/`, `experiments/`, `docs/setup/`, `media/`.
-
-- [ ] Split this later work into bounded Issues when G4 evidence is ready.
-- [ ] Complete S01-S12 and supplementary required faults under frozen criteria.
-- [ ] Independently review evidence and challenge the verifier with negative cases.
-- [ ] Publish a pinned, reproducible core demo and independent build log.
+Closing a learning task completes its documented scope only; all gate decisions remain separate.

@@ -1,40 +1,42 @@
-# Roadmap to v0.1
+# Roadmap: learning first, verified autonomy next
 
-**Current capability status: no gate completed.** See [STATUS](STATUS.md) for the latest planning snapshot
-and [BACKLOG](BACKLOG.md) for task ownership and dependencies.
+Current status: no learning milestone or G0–G8 gate is claimed complete.
+See [TWO_STAGE_PLAN](TWO_STAGE_PLAN.md), [BACKLOG](BACKLOG.md) and [STATUS](STATUS.md).
 
-The original eight-week outline is a pacing hypothesis. Start its clock when the team and compatible
-hardware are ready; supplier delays and failed tests change the plan. Do not compress testing to keep a date.
+| Stage | Work | Exit / next decision |
+| --- | --- | --- |
+| 1 — Mature kit baseline | Select complete kit; restore vendor environment; understand controls; check stopping; reproduce tutorials; log failures; make one reversible change | Frank and Harry can explain and repeat the baseline and modification. Review remaining gaps. |
+| 2 — RK3588 direction | Define motivation; desktop compatibility/inference comparison; preserve original baseline; integrate only after review | Measured comparison and decision to migrate, iterate or keep the kit. Revalidate affected behavior. |
 
-| Gate | Suggested window | Lead | Entry dependency | Exit evidence |
-| --- | --- | --- | --- | --- |
-| G0 Architecture | Kickoff / first 72 hours | Both + mentor | Shared goal | Reviewed scope, interfaces, compatible BOM direction, stop-path design, and test drafts. |
-| G1 Manual robot | Week 1 | Partner | G0; frozen G1 spec | Teleop, encoder, emergency-stop and command-timeout measurements on the chosen base. |
-| G2 Navigation | Weeks 2–3 | Partner; Frank reviews | G1 | Defined 20-run SLAM/Nav2 protocol, raw outcomes, interventions, and acceptance verdict. |
-| G3 Edge AI | Week 4 | Frank; partner reviews | G2 for gate completion | Model record and measured latency/FPS/accuracy/temperature on RK3588. |
-| G4 Target identity | Week 5 | Frank | G3 | Enrollment, distractor and occlusion results; identity-switch and confidence evidence. |
-| G5 Following | Week 6 | Both | G4 | Integrated S01–S09 reports within the declared operating envelope. |
-| G6 Fault injection | Week 7 | Partner | G5 | S10–S12 plus stale data, MCU link loss, and other required fault results. |
-| G7 Independent verification | Week 7 | Independent reviewer + mentor | G6 | All mandatory criteria resolved; evidence-linked release verdict. |
-| G8 External reproduction | Week 8 or later | A contributor outside the feature authors | G7 | Reproduction from a pinned revision, complete setup notes, and independent results. |
+The former eight-week outline is retired as an immediate schedule.
+Estimate effort after the kit and teammate availability are known.
+Stage 1 is not a renamed verification gate; Stage 2 is not a requirement for starting formal
+verification on the mature kit. It is a later platform investigation.
 
-Software setup, offline learning, and experiment-template practice may run in parallel with hardware
-selection. Completing an offline exercise does not advance a gate or authorize an integrated moving test.
-G1 already includes protective behavior; G6 expands fault coverage in the integrated following system.
+## Formal capability gates
 
-## Learning tied to outputs
+These retain their existing sequence and acceptance requirements. No dates override evidence.
 
-| Learn | Use it to produce |
-| --- | --- |
-| Git, Python, terminal basics | A reproducible change and evidence record another teammate can inspect. |
-| Frames, units, timing, odometry | An interface contract and measured motion/calibration results. |
-| ROS 2, SLAM, navigation | A repeatable 20-run navigation experiment. |
-| Edge AI, quantization, tracking | Measured inference behavior and target-identity failure analysis. |
-| Experimental design and statistics | Predeclared criteria, raw outcomes, distributions, and limitations. |
-| AI-assisted engineering | A change whose correctness is established independently of its author. |
+| Gate | Lead (proposed) | Entry | Exit evidence |
+| --- | --- | --- | --- |
+| G0 Architecture | Frank + Harry + mentor | Actual kit knowledge and selection evidence | Reviewed scope, interfaces, supplier comparison, stop path, compatibility, G1/G2 drafts and required dry-run record. |
+| G1 Manual robot | Harry; Frank + mentor review | G0 and frozen G1 spec | Measured manual motion, encoders, physical stop, command timeout and rearm. |
+| G2 Navigation | Harry; Frank reviews | G1 and frozen G2 spec | Formal 20-trial report, raw outcomes, interventions and verdict. |
+| G3 Edge AI | Frank; Harry reviews | G2 for gate completion; frozen backend-specific spec | Model/version record; accuracy, latency, FPS and thermal observations on the selected backend. |
+| G4 Target identity | Frank | G3 | Enrollment, distractor, occlusion and identity-continuity evidence. |
+| G5 Following | Both | G4 | Integrated S01–S09 evidence. |
+| G6 Fault injection | Harry | G5 | S10–S12 and supplementary stale-data/link-loss faults. |
+| G7 Independent verification | Independent reviewer + mentor | G6 | Evidence-linked verdict; required gaps resolved. |
+| G8 External reproduction | Contributor outside feature authors | G7 | Independent setup and results from a pinned revision. |
 
-## After v0.1
+T08 now reviews the learning baseline. Its former formal G0/G1 review is preserved at T09 entry.
+T06's formal navigation plan is deferred until baseline tutorial experience, before qualifying G2 runs.
+Qualifying tests still require the complete frozen criteria; learning observations cannot be
+retroactively promoted into passing trials.
 
-After G8, test a following load-carrying prototype with real users. Choose a product direction from those
-observations. Delivery, luggage, custom control boards, imitation learning, and multi-robot work remain
-future decisions with their own requirements.
+## Continuing contribution
+
+Learn Git/Python through reproducible changes; ROS through observed nodes, frames and telemetry;
+AI through measured model behavior; scientific reasoning through recorded failures and cross-review.
+Extend the evidence workflow as experiments become more demanding.
+Delivery, outdoor use, custom boards and end-to-end learned control remain future scope decisions.

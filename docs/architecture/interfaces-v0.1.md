@@ -2,6 +2,8 @@
 
 Status: DRAFT. Logical interfaces below define responsibilities. ROS topic names, message types,
 QoS, rates, and vendor packet bytes must be confirmed during T02/T04; this is not a ready driver API.
+Stage 1 T02/T04 first document the actual vendor interfaces and gaps. Completing this full
+project contract is later formal integration work, not a prerequisite for non-motion tutorials.
 
 | Interface | Producer → consumer | Required information | Failure contract |
 | --- | --- | --- | --- |

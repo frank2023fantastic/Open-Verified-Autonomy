@@ -8,7 +8,7 @@ Our first application is **verified target following**: a small indoor robot tha
 
 > **Current status — Startup scaffold, September 2026.** Architecture and interface drafts, a task roadmap, acceptance/scenario drafts, and experiment templates are now available. Runtime robotics software and hardware validation remain to be implemented. No robot capability or development gate has been verified yet.
 
-**Start with [the first 72 hours](docs/START_HERE.md), [the task backlog](docs/plan/BACKLOG.md), and [current status](docs/plan/STATUS.md).**
+**Start with [the learning-first startup guide](docs/START_HERE.md), [the task backlog](docs/plan/BACKLOG.md), and [current status](docs/plan/STATUS.md).**
 
 ## Why we are building this
 
@@ -63,20 +63,32 @@ The diagram shows the intended authority boundaries. The physical emergency stop
 
 The verification plane can run on a development computer or in CI. It evaluates requirements and evidence before and after experiments. Runtime motion protection belongs to the deterministic safety plane. **An AI verdict cannot override a stop or authorize motor commands.**
 
+## Two stages: mature kit first, RK3588 later
+
+Frank and Harry will first use a mature, assembled robot with its vendor-supported computer,
+software image and sensors. They will reproduce tutorials, explain the data/control flow,
+make one reversible change and investigate a real failure. This establishes a working reference.
+
+RK3588 remains the longer-term compute direction. Begin its desktop evaluation after the team
+has practical understanding and a concrete motivation, preserving the kit for comparison and rollback.
+See the [two-stage plan](docs/plan/TWO_STAGE_PLAN.md) for learning outcomes and motion-readiness checks.
+Tutorial success is not a G0–G8 verification result. Formal verification can proceed on the kit
+without waiting for RK3588 migration.
+
 ## Initial hardware and software direction
 
 | Component | Initial direction | What must be checked |
 | --- | --- | --- |
-| Main computer | RK3588 single-board computer with adequate cooling and storage | Board image, ARM64 drivers, sustained inference latency, temperature, and power behavior. |
+| Main computer | The mature kit's vendor-supported computer and software image | Reproducible tutorials, recovery, source access and system support; RK3588 evaluation comes later. |
 | Mobile base | Mature differential-drive chassis with encoders and an independent MCU | Open command/telemetry protocol, odometry, watchdog behavior, and access to the hardware stop path. |
 | Sensors | 2D LiDAR, USB UVC RGB camera, wheel encoders, and IMU | Driver support, timestamps, calibration, and failure detection. |
 | Power | Suitable finished battery pack, BMS, charger, and regulated supplies | Compatibility with the base, computer, and sensors under load. |
 | Robotics software | ROS 2, SLAM Toolbox, and Nav2 | A documented, reproducible combination of OS, packages, drivers, and configuration. |
-| Edge inference | Rockchip RKNN toolchain and a compact perception model | Model conversion, accuracy changes, end-to-end latency, and thermal behavior. |
+| Edge inference | Supplied working vision examples first; RKNN in a later RK3588 evaluation | Understand inputs/outputs, preserve baseline results and measure subsequent changes. |
 
-**RK3588 is the initial compute direction and a replaceable backend.** The autonomy interfaces and verification protocol should survive a change of board or inference engine. We will choose the exact board, sensors, MCU, and software versions after compatibility checks.
+**RK3588 is a longer-term direction, not a Stage 1 requirement.** Preserve reusable interfaces, logs and baseline configurations so a later board change can be compared and reversed. No exact kit or board is selected yet.
 
-Start with available modules, including suitable open-protocol chassis sold on Taobao. Ask vendors for source links, licenses, ROS 2 examples, URDF/TF documentation, encoder data, and the actual watchdog behavior. Check whether the chassis can be purchased without a bundled main computer. Custom control boards can follow once the platform and product requirements are understood.
+Start with a complete mature kit, including its supported computer. Compare dated tutorial/source evidence, recovery instructions, protocols, stop behavior, package contents and total cost. Check whether the controller and sensors can later be reused with another computer. Purchase finished hardware; custom control-board and power-supply design are outside the starting scope.
 
 ## What “verified” means here
 
@@ -121,7 +133,7 @@ All gates below are **planned and uncompleted**. Progress depends on evidence, n
 | **G0 — Architecture** | Define the three planes, interfaces, hardware shortlist, and acceptance drafts. | Architecture document, BOM, stop-path design, and versioned test specifications. |
 | **G1 — Manual robot** | Teleoperation, encoder feedback, emergency stop, and watchdog behavior. | Repeatable manual-control and fault-stop tests with video and motor logs. |
 | **G2 — Navigation** | LiDAR, mapping, localization, and point-to-point Nav2 operation. | A 20-run navigation report with outcomes, interventions, logs, and compliance with predefined criteria. |
-| **G3 — Edge AI** | Perception on the initial RK3588 backend. | Model/version record and measured latency, FPS, accuracy, and temperature under sustained load. |
+| **G3 — Edge AI** | Perception on the selected, documented backend. | Model/version record and measured latency, FPS, accuracy, and temperature under sustained load. |
 | **G4 — Target identity** | Enrollment and tracking of the selected person in a multi-person scene. | Identity-switch results, confidence traces, and annotated video. |
 | **G5 — Following** | Integrated following, obstacle handling, and uncertainty policy. | Evidence for scenarios S01–S09. |
 | **G6 — Fault injection** | Protective behavior during sensor, node, and communication failures. | Evidence for S10–S12 plus MCU-link loss and stale-data tests. |
@@ -151,14 +163,14 @@ Before these tests, define numerical limits for speed, acceleration, following d
 
 ## Start here
 
-The next deliverable is **G0**, followed by a measurable G1 manual robot.
+The next deliverable is **a reproduced and understood vendor baseline**, followed by one reversible modification. G0–G8 remain the formal verification path, with complete entry requirements before qualifying tests.
 
-1. Follow [the first 72 hours](docs/START_HERE.md) and confirm [team responsibilities](docs/plan/TEAM.md).
-2. Review the drafted [architecture](docs/architecture/three-plane-v0.1.md) and [interfaces](docs/architecture/interfaces-v0.1.md).
-3. Use [the hardware checklist](hardware/supplier-checklist.md) to compare real suppliers and resolve compatibility.
-4. Complete the drafted [G1](verification/specs/G1-manual-robot.yaml) and [G2](verification/specs/G2-navigation.yaml) criteria.
-5. Use [the experiment templates](experiments/README.md) to rehearse evidence capture.
-6. Work through [the backlog](docs/plan/BACKLOG.md) and [GitHub Issues](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues).
+1. Follow [the startup guide](docs/START_HERE.md) and confirm [Frank/Harry responsibilities](docs/plan/TEAM.md), time and budget.
+2. Use [the hardware checklist](hardware/supplier-checklist.md) to select a mature complete kit.
+3. Reproduce the vendor environment, understand its data flow and check its stop controls.
+4. Run bounded tutorials, keep learning logs and make one reversible change under the [two-stage plan](docs/plan/TWO_STAGE_PLAN.md).
+5. Prepare complete frozen [G1](verification/specs/G1-manual-robot.yaml) and [G2](verification/specs/G2-navigation.yaml) criteria before later qualifying tests.
+6. Work through [the rescheduled backlog](docs/plan/BACKLOG.md) and [GitHub Issues](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues).
 
 The record-creation helper is available with Python 3.9+:
 
@@ -203,7 +215,7 @@ Use existing projects as documented building blocks. For every integration, reco
 
 These are reference resources, not a claim that their integration has been tested here. Pin compatible versions as part of implementation and preserve upstream license obligations. The project license is still to be selected and added.
 
-Frank will lead the project direction, perception and identity work, repository, and English build logs. Robotics and testing collaborators can lead chassis integration, navigation, scenario design, and physical experiments. Mentors review architecture and evidence; AI agents assist with planning, implementation, review, and finding counterexamples.
+Frank will lead the project direction, perception and identity work, repository, and English build logs. Harry, Frank's classmate, is proposed to lead chassis integration, navigation, scenario design and physical experiments; confirm the working agreement in T01. Mentors review architecture and evidence; AI agents assist with planning, implementation, review, and finding counterexamples.
 
 Contributions can be code, a reproducible failure, a test scenario, a measurement, clearer documentation, or an independent reproduction. Publish failures as well as successes, and connect every demo to its commit and evidence.
 

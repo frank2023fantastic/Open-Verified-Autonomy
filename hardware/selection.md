@@ -1,6 +1,9 @@
 # Hardware selection record
 
 Status: OPEN. Complete this record with actual supplier evidence; no purchase is recorded by this scaffold.
+Current scope: select a mature complete kit with its vendor-supported compute/image for Stage 1.
+Record tutorial/recovery evidence and total package cost. The earlier L150/RK3588-first proposal
+is superseded for initial procurement; later reuse and migration remain separate questions.
 
 | Candidate | Dated quote | Open protocol/source | Independent timeout | Electrical stop path | ROS 2/driver evidence | Unresolved items |
 | --- | --- | --- | --- | --- | --- | --- |

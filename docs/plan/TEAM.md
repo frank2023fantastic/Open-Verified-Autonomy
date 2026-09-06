@@ -11,13 +11,21 @@ These are proposed working responsibilities based on the project direction. Conf
 | AI builder | Draft code, configuration, documentation, and test tooling | Supplies changes and assumptions; cannot independently certify its own work. |
 | Independent reviewer/verifier | Challenge criteria and inspect source evidence | Does not repair the implementation and then certify that same repair. |
 
+## Stage 1 working focus
+
+Frank and Harry first reproduce the vendor baseline together. Frank focuses on software and
+vision examples; Harry on controls, sensors and navigation examples. Both should restart the
+system, explain its flow and review one another's changes. These remain proposed responsibilities.
+RK3588 engineering begins later under the [two-stage plan](TWO_STAGE_PLAN.md).
+
 ## Fill in at kickoff
 
 - Partner name: **Harry — Frank's classmate**
 - Harry's GitHub handle: **TBD**
 - Existing computer and equipment: **TBD**
 - Time available per person: **TBD**
-- Agreed hardware spending envelope: **TBD**
+- Stage 1 complete-kit spending envelope: **TBD**
+- Later RK3588 investigation budget: **DEFERRED**
 - Mentor/reviewer for the first physical test: **TBD**
 - Project license decision owner: **Frank / maintainer; decision pending**
 

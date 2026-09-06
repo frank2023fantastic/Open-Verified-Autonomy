@@ -1,7 +1,12 @@
 # T03 discussion: RK3588 and a purchased differential-drive base
 
 Date: 2026-09-06  
-Status: **PROPOSAL FOR DISCUSSION — no purchase approval or compatibility claim**  
+Status: **SUPERSEDED FOR STAGE 1 PROCUREMENT — historical proposal, no purchase approval**
+
+Update: the [two-stage plan](../docs/plan/TWO_STAGE_PLAN.md) now takes priority. Stage 1 selects
+a mature complete kit with its vendor-supported computer; RK3588 and the L150/C30D combination
+below are retained only as possible later integration references. This historical checklist is
+not the current purchase instruction.  
 Discussion: [Issue #3](https://github.com/frank2023fantastic/Open-Verified-Autonomy/issues/3)
 
 ## Recommendation

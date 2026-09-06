@@ -1,15 +1,17 @@
 # Development environment record
 
 Status: DRAFT. No OS image, ROS 2 distribution, sensor driver, or RKNN version is pinned yet.
-Select a compatible combination using upstream documentation and direct setup experiments.
+Stage 1 starts with the selected kit's vendor-supported combination and recovery procedure.
+Pin upstream sources and record actual setup observations. RK3588/RKNN rows are deferred Stage 2 work.
 
 | Item | Candidate / exact version | Source link | Observed result | Owner |
 | --- | --- | --- | --- | --- |
 | Existing development computer and OS | TBD | TBD | NOT TESTED | Frank |
 | ROS 2 distribution and install method | TBD | TBD | NOT TESTED | Partner |
 | Simulator and robot description | TBD | TBD | NOT TESTED | Partner |
-| RK3588 board, OS image, kernel | TBD | TBD | NOT TESTED | Frank |
-| Board NPU driver, runtime, and conversion tool | TBD | TBD | NOT TESTED | Frank |
+| Vendor kit computer, supplied image, kernel and recovery method | TBD | TBD | NOT TESTED | Frank + Harry |
+| RK3588 board, OS image, kernel (Stage 2) | DEFERRED | TBD | NOT TESTED | Frank |
+| RK3588 NPU driver, runtime and conversion tool (Stage 2) | DEFERRED | TBD | NOT TESTED | Frank |
 | Camera and LiDAR drivers | TBD | TBD | NOT TESTED | Partner |
 | MCU transport and firmware revision | TBD | TBD | NOT TESTED | Partner |
 

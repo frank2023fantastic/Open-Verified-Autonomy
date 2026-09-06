@@ -1,5 +1,8 @@
 # G1 bench bringup checklist
 
+This is the formal qualifying-test procedure. Initial vendor learning exercises use the bounded
+[Stage 1 motion-readiness checks](../docs/plan/TWO_STAGE_PLAN.md) and do not claim G1 completion.
+
 Status: planned procedure, not an executed record. Use it with the chosen hardware documentation and
 a completed, frozen [G1 specification](../verification/specs/G1-manual-robot.yaml).
 Resolve hardware-specific setup details with the mentor before the qualifying physical test.
