@@ -17,7 +17,7 @@ GitHub Issues track individual task execution; this file tracks capability evide
 
 ## Current blockers to G0 completion
 
-1. Record partner identity, available equipment, and budget.
+1. Record Harry's GitHub handle, confirm team availability, and document available equipment and budget. Harry is Frank's classmate; his identity is recorded in [TEAM](TEAM.md).
 2. Obtain actual protocol, watchdog, and electrical stop-path evidence from candidate suppliers.
 3. Resolve OS/ROS 2/driver/RKNN compatibility for the chosen components.
 4. Complete hardware-specific limits and measurement methods in G1/G2 specifications.

@@ -10,15 +10,15 @@ Both teammates read the README and [three-plane architecture](architecture/three
 Each explains the goal, stop authority, and what could make a demo misleading.
 
 - Frank owns product scope, perception/identity, GitHub organization, and English build logs.
-- The robotics/test partner owns chassis integration, navigation, and test setup.
-- Record the partner's name, available equipment, available time, and one owner per task in [TEAM](plan/TEAM.md).
+- Harry, Frank's classmate and robotics/test partner, is proposed to lead chassis integration, navigation, and test setup; confirm the working agreement in T01.
+- Record Harry's GitHub handle, available equipment, available time, and one owner per task in [TEAM](plan/TEAM.md).
 - Start T01 and T02 from [BACKLOG](plan/BACKLOG.md). Add questions to the task; do not guess hardware facts.
 
 Output: a short shared scope statement, named task owners, and an annotated interface draft.
 
 ## Session 2: select a compatible starting platform
 
-The partner compares at least three chassis suppliers using [the supplier checklist](../hardware/supplier-checklist.md).
+Harry compares at least three chassis suppliers using [the supplier checklist](../hardware/supplier-checklist.md).
 Frank records the existing development computer and candidate board software combinations using
 [the development setup record](setup/development-environment.md).
 

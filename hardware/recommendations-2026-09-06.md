@@ -123,8 +123,9 @@ Reviewed on 2026-09-06; pin exact revisions when selecting components.
   starting point for evaluating the optional RGB-D camera. Confirm model-specific SDK,
   ARM64 dependencies, USB behavior and the actual board image.
 
-Suggested division of discussion work: Frank on compute/perception requirements; the robotics/test
-partner on supplier evidence and chassis integration; a separate reviewer/mentor on stop behavior
-and measurement methods. Confirm named owners through T01. Decisions belong in
+Suggested division of discussion work: Frank on compute/perception requirements; Harry, Frank's
+classmate and project collaborator, on supplier evidence and chassis integration; a separate
+reviewer/mentor on stop behavior and measurement methods. Confirm role acceptance, Harry's GitHub
+handle and the reviewer through T01. Decisions belong in
 [selection.md](selection.md) and a [decision record](../docs/architecture/decisions/README.md);
 this proposal remains a traceable input.
