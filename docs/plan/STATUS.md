@@ -35,3 +35,11 @@ kit selection and first non-motion setup. T06's formal 20-trial plan is deferred
 
 Next work: [T01–T04 preparation](BACKLOG.md), then T05 before T08 motion; T07 accompanies learning.
 Keep no more than one active implementation task per person. Formal G0–G8 verdicts remain unchanged.
+
+## Exploration assets
+
+The [pet-robot discussion and visual archive](../../media/concepts/2026-09-06-pet-robot/README.md)
+is published as design input: eight generated concept images, 17 seller reference images,
+provenance and proposed experiments. L150 Pro four-wheel drive is a reported candidate; no purchase
+or complete-kit compatibility is confirmed. Pet demand, spherical recovery and unattended use
+remain hypotheses. No learning milestone or G0–G8 verdict is advanced by the archive.

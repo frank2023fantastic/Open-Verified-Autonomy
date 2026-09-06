@@ -19,3 +19,13 @@ is superseded for initial procurement; later reuse and migration remain separate
 - Remaining tests before claiming G1: TBD
 
 Use a decision record when the choice is accepted. Retain rejected alternatives and the reasons.
+
+## Candidate reported in the 2026-09-06 discussion
+
+The sponsor reports that Frank and Harry are considering the **L150 Pro four-wheel-drive** package.
+See [the supplied package image](../media/concepts/2026-09-06-pet-robot/references/IMG_0367.jpeg)
+and [the assessment](../media/concepts/2026-09-06-pet-robot/DISCUSSION.md#assessment-of-the-l150-pro-four-wheel-drive-candidate).
+This is candidate interest, not an approved BOM or purchase. The pictured contents do not establish
+an included ROS 2 computer, camera, system image or complete navigation package; LiDAR/handset
+are shown as options. Obtain the exact SKU, itemized quote and matching tutorial/driver/stop evidence.
+Spherical robot images are future concepts and are not an orderable alternative recorded here.

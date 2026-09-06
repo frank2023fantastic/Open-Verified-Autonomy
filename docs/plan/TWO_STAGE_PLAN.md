@@ -88,3 +88,13 @@ backend before freezing; never silently reuse a mismatched acceptance record.
 The Autonomy / Safety / Verification boundaries and the enrolled-target v0.1 mission remain.
 
 See [BACKLOG](BACKLOG.md) for the rescheduled Issues and [ROADMAP](ROADMAP.md) for formal gates.
+
+## Optional application exploration: pet play
+
+[The pet-robot process archive](../../media/concepts/2026-09-06-pet-robot/README.md) preserves the
+need signal from Harry's mother, Koala's ball-shape hypothesis and alternative designs.
+Use it as discussion input to T08 after kit/stop readiness. The team-reported L150 Pro four-wheel
+candidate still needs its exact complete-package support confirmed in T03.
+A ball-versus-base interaction comparison may use suitable purchased devices; it does not require
+custom spherical mechanics, fixed-room cameras or RK3588 work now. Record a separate scope
+and test decision before treating pet interaction as a formal project capability.

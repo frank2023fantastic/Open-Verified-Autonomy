@@ -219,6 +219,15 @@ Frank will lead the project direction, perception and identity work, repository,
 
 Contributions can be code, a reproducible failure, a test scenario, a measurement, clearer documentation, or an independent reproduction. Publish failures as well as successes, and connect every demo to its commit and evidence.
 
+## Pet interaction exploration
+
+Frank and Harry are exploring a pet-play application alongside the mature-kit learning plan.
+[The discussion and visual archive](media/concepts/2026-09-06-pet-robot/README.md) records the
+owner need signal, Koala's spherical-form suggestion, eight English concept illustrations,
+seller references and proposed supervised experiments. The pictures are synthetic concepts,
+not a built product or evidence of unattended-use readiness. This exploration does not replace
+the enrolled-person v0.1 mission or change any verification gate.
+
 ## Longer-term direction
 
 After the core demo is independently reproduced, test whether people find a following load-carrying prototype useful. Use those observations to choose a product direction and decide whether custom hardware is justified.
